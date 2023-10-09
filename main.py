@@ -3,8 +3,6 @@ from PIL import Image
 
 
 def main():
-    global flag
-
     st.write(
         f'<div style="display: flex; justify-content: center;">'
         f'<h1>주차장을 선택해 주세요</h1>'
@@ -30,9 +28,9 @@ def main():
 
 image_paths = [
     ("photos/국교 주차장.jpg", "국교 주차장", "/tmp1"),
-    ("photos/랩실 앞 주차장.jpeg", "랩실 앞 주차장", "/tmp2"),
-    ("photos/N11동 주차장.jpeg", "N11 주차장", "/tmp3"),
-    ("photos/랩실 앞 주차장.jpeg", "랩실 앞 주차장", "/tmp4"),
+    ("photos/랩실 앞 주차장.JPEG", "랩실 앞 주차장", "/tmp2"),
+    ("photos/N11동 주차장.JPEG", "N11 주차장", "/tmp3"),
+    ("photos/랩실 앞 주차장.JPEG", "랩실 앞 주차장", "/tmp4"),
     # 여기에 더 많은 이미지 파일 경로를 추가하세요.
 ]
 
