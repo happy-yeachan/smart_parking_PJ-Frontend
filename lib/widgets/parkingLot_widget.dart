@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:smart_parking/screen/detail_screen.dart';
 
 class ParkingLot extends StatelessWidget {
   final String parkingName, id, image;
@@ -14,17 +17,17 @@ class ParkingLot extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(
-        //     builder: (context) => DetailScreen(
-        //       title: title,
-        //       thumb: thumb,
-        //       id: id,
-        //     ),
-        //     fullscreenDialog: true,
-        //   ),
-        // );
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DetailScreen(
+              parkingName: parkingName,
+              image: image,
+              id: id,
+            ),
+            fullscreenDialog: true,
+          ),
+        );
       },
       child: Column(
         children: [
@@ -43,7 +46,7 @@ class ParkingLot extends StatelessWidget {
                   )
                 ],
               ),
-              child: Image.memory(Uri.parse(image).data!.contentAsBytes()),
+              child: Image.memory(base64.decode(image)),
             ),
           ),
           const SizedBox(

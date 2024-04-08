@@ -6,8 +6,7 @@ import 'package:smart_parking/widgets/parkingLot_widget.dart';
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
-  final Future<List<parkingLot_model>> parkingLots =
-      ApiService.getParkingLots();
+  final Future<List<parkingLotModel>> parkingLots = ApiService.getParkingLots();
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +46,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  ListView makeList(AsyncSnapshot<List<parkingLot_model>> snapshot) {
+  ListView makeList(AsyncSnapshot<List<parkingLotModel>> snapshot) {
     return ListView.separated(
       scrollDirection: Axis.horizontal,
       itemCount: snapshot.data!.length,

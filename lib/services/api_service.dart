@@ -1,40 +1,35 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:smart_parking/models/parkingLot_detail_model.dart';
 import 'package:smart_parking/models/parkingLot_model.dart';
 
 class ApiService {
-  static const String baseUrl =
-      "https://2735-203-230-103-176.ngrok-free.app/parking";
+  static const String baseUrl = "http://3.35.138.59:8080/parking";
 
-  static Future<List<parkingLot_model>> getParkingLots() async {
-    List<parkingLot_model> parkingLotInstances = [];
+  static Future<List<parkingLotModel>> getParkingLots() async {
+    List<parkingLotModel> parkingLotInstances = [];
     final url = Uri.parse(baseUrl);
-    final response =
-        await http.get(url, headers: {"ngrok-skip-browser-warning": "123"});
-    // final response = await http.get(url, headers: {
-    //   "ngrok-skip-browser-warning": "123",
-    // });
-    print(response.body);
+    final response = await http.get(url);
     if (response.statusCode == 200) {
       final List<dynamic> parkingLots = jsonDecode(response.body);
-      print("hello");
       for (var parkingLot in parkingLots) {
-        parkingLotInstances.add(parkingLot_model.fromJson(parkingLot));
+        parkingLotInstances.add(parkingLotModel.fromJson(parkingLot));
       }
       return parkingLotInstances;
     }
     throw Error();
   }
 
-  // static Future<WebtoonDetailModel> getToonById(String id) async {
-  //   final url = Uri.parse('$baseUrl/$id');
-  //   final response = await http.get(url);
-  //   if (response.statusCode == 200) {
-  //     final webtoon = jsonDecode(response.body);
-  //     return WebtoonDetailModel.fromJson(webtoon);
-  //   }
-  //   throw Error();
-  // }
+  static Future<ParkingLotDetailModel> getLotById(String id) async {
+    final url = Uri.parse('$baseUrl/$id');
+    print(url);
+    final response = await http.get(url);
+    if (response.statusCode == 200) {
+      final parkingLot = jsonDecode(response.body);
+      return ParkingLotDetailModel.fromJson(parkingLot);
+    }
+    throw Error();
+  }
 
   // static Future<List<WebtoonEpisodeModel>> getLatestEpisodesById(
   //     String id) async {
