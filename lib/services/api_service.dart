@@ -11,7 +11,8 @@ class ApiService {
     final url = Uri.parse(baseUrl);
     final response = await http.get(url);
     if (response.statusCode == 200) {
-      final List<dynamic> parkingLots = jsonDecode(response.body);
+      final List<dynamic> parkingLots =
+          jsonDecode(utf8.decode(response.bodyBytes));
       for (var parkingLot in parkingLots) {
         parkingLotInstances.add(parkingLotModel.fromJson(parkingLot));
       }
@@ -22,10 +23,9 @@ class ApiService {
 
   static Future<ParkingLotDetailModel> getLotById(String id) async {
     final url = Uri.parse('$baseUrl/$id');
-    print(url);
     final response = await http.get(url);
     if (response.statusCode == 200) {
-      final parkingLot = jsonDecode(response.body);
+      final parkingLot = jsonDecode(utf8.decode(response.bodyBytes));
       return ParkingLotDetailModel.fromJson(parkingLot);
     }
     throw Error();
