@@ -133,6 +133,12 @@ class _DetailScreenState extends State<DetailScreen> {
                         const SizedBox(
                           height: 15,
                         ),
+                        const Text(
+                          '주차 가능 공간 / 현재 차량 수',
+                          style: TextStyle(
+                            fontSize: 16,
+                          ),
+                        ),
                         Text(
                           '${snapshot.data!.totalSpace} / ${snapshot.data!.currentCar}',
                           style: const TextStyle(
