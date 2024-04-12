@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smart_parking/models/parkingLot_model.dart';
 import 'package:smart_parking/services/api_service.dart';
 import 'package:smart_parking/widgets/parkingLot_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
-
   final Future<List<parkingLotModel>> parkingLots = ApiService.getParkingLots();
 
   @override
@@ -47,20 +47,38 @@ class HomeScreen extends StatelessWidget {
   }
 
   ListView makeList(AsyncSnapshot<List<parkingLotModel>> snapshot) {
-    return ListView.separated(
-      scrollDirection: Axis.horizontal,
-      itemCount: snapshot.data!.length,
+    return ListView.builder(
+      scrollDirection: Axis.vertical,
+      itemCount: (snapshot.data!.length / 2).ceil(),
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
       itemBuilder: (context, index) {
-        var parkingLot = snapshot.data![index];
-        return ParkingLot(
-            parkingName: parkingLot.parkingName,
-            image: parkingLot.image,
-            id: parkingLot.id);
+        final int firstIndex = index * 2;
+        final int secondIndex = index * 2 + 1;
+        return Row(
+          children: [
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(right: 20),
+                child: ParkingLot(
+                  parkingName: snapshot.data![firstIndex].parkingName,
+                  image: snapshot.data![firstIndex].image,
+                  id: snapshot.data![firstIndex].id,
+                ),
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(right: 20),
+                child: ParkingLot(
+                  parkingName: snapshot.data![secondIndex].parkingName,
+                  image: snapshot.data![secondIndex].image,
+                  id: snapshot.data![secondIndex].id,
+                ),
+              ),
+            ),
+          ],
+        );
       },
-      separatorBuilder: (context, index) => const SizedBox(
-        width: 40,
-      ),
     );
   }
 }
