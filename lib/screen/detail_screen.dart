@@ -88,7 +88,7 @@ class _DetailScreenState extends State<DetailScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(50),
+          padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 5),
           child: Column(
             children: [
               Row(
@@ -97,7 +97,7 @@ class _DetailScreenState extends State<DetailScreen> {
                   Hero(
                     tag: widget.id,
                     child: Container(
-                      width: 250,
+                      width: 380,
                       clipBehavior: Clip.hardEdge,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
@@ -109,7 +109,10 @@ class _DetailScreenState extends State<DetailScreen> {
                           )
                         ],
                       ),
-                      child: Image.memory(base64.decode(widget.image)),
+                      child: Image.memory(
+                        base64.decode(widget.image),
+                        fit: BoxFit.fill,
+                      ),
                     ),
                   ),
                 ],
