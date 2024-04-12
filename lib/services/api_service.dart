@@ -4,7 +4,7 @@ import 'package:smart_parking/models/parkingLot_detail_model.dart';
 import 'package:smart_parking/models/parkingLot_model.dart';
 
 class ApiService {
-  static const String baseUrl = "http://3.35.138.59:8080/parking";
+  static const String baseUrl = "http://43.201.56.60:8080/parking";
 
   static Future<List<parkingLotModel>> getParkingLots() async {
     List<parkingLotModel> parkingLotInstances = [];
