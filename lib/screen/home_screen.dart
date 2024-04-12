@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smart_parking/models/parkingLot_model.dart';
 import 'package:smart_parking/services/api_service.dart';
 import 'package:smart_parking/widgets/parkingLot_widget.dart';

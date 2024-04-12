@@ -30,19 +30,4 @@ class ApiService {
     }
     throw Error();
   }
-
-  // static Future<List<WebtoonEpisodeModel>> getLatestEpisodesById(
-  //     String id) async {
-  //   List<WebtoonEpisodeModel> episodeInstances = [];
-  //   final url = Uri.parse('$baseUrl/$id/episodes');
-  //   final response = await http.get(url);
-  //   if (response.statusCode == 200) {
-  //     final episodes = jsonDecode(response.body);
-  //     for (var episode in episodes) {
-  //       episodeInstances.add(WebtoonEpisodeModel.fromJson(episode));
-  //     }
-  //     return episodeInstances;
-  //   }
-  //   throw Error();
-  // }
 }
