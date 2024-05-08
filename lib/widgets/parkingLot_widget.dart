@@ -58,9 +58,6 @@ class ParkingLot extends StatelessWidget {
               fontSize: 22,
             ),
           ),
-          const SizedBox(
-            height: 10,
-          ),
         ],
       ),
     );
