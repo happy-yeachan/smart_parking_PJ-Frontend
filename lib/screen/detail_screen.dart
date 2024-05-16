@@ -77,7 +77,7 @@ class _DetailScreenState extends State<DetailScreen> {
             icon: Icon(isLiked
                 ? Icons.favorite_rounded
                 : Icons.favorite_outline_rounded),
-          )
+          ),
         ],
         title: Text(
           widget.parkingName,
@@ -127,25 +127,13 @@ class _DetailScreenState extends State<DetailScreen> {
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          snapshot.data!.parkingName,
-                          style: const TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
                         const SizedBox(
                           height: 15,
                         ),
-                        const Text(
-                          '주차 가능 공간 / 현재 차량 수',
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
                         Text(
-                          '${snapshot.data!.totalSpace} / ${snapshot.data!.currentCar}',
+                          '현재 차량 수: ${snapshot.data!.currentCar}',
                           style: const TextStyle(
-                            fontSize: 16,
+                            fontSize: 50,
                           ),
                         ),
                       ],
