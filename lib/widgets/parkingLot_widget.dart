@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:smart_parking/screen/detail_screen.dart';
 
 class ParkingLot extends StatelessWidget {
-  final String parkingName, id, image;
+  final String name, id, image;
 
   const ParkingLot({
     super.key,
-    required this.parkingName,
+    required this.name,
     required this.image,
     required this.id,
   });
@@ -21,7 +21,7 @@ class ParkingLot extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) => DetailScreen(
-              parkingName: parkingName,
+              name: name,
               image: image,
               id: id,
             ),
@@ -53,7 +53,7 @@ class ParkingLot extends StatelessWidget {
             height: 10,
           ),
           Text(
-            parkingName,
+            name,
             style: const TextStyle(
               fontSize: 22,
             ),
