@@ -81,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Padding(
                 padding: const EdgeInsets.only(right: 20),
                 child: ParkingLot(
-                  parkingName: snapshot.data![firstIndex].parkingName,
+                  name: snapshot.data![firstIndex].name,
                   image: snapshot.data![firstIndex].image,
                   id: snapshot.data![firstIndex].id,
                 ),
@@ -91,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Padding(
                 padding: const EdgeInsets.only(right: 20),
                 child: ParkingLot(
-                  parkingName: snapshot.data![secondIndex].parkingName,
+                  name: snapshot.data![secondIndex].name,
                   image: snapshot.data![secondIndex].image,
                   id: snapshot.data![secondIndex].id,
                 ),

@@ -6,11 +6,11 @@ import 'package:smart_parking/models/parkingLot_detail_model.dart';
 import 'package:smart_parking/services/api_service.dart';
 
 class DetailScreen extends StatefulWidget {
-  final String parkingName, image, id;
+  final String name, image, id;
 
   const DetailScreen({
     super.key,
-    required this.parkingName,
+    required this.name,
     required this.image,
     required this.id,
   });
@@ -80,7 +80,7 @@ class _DetailScreenState extends State<DetailScreen> {
           ),
         ],
         title: Text(
-          widget.parkingName,
+          widget.name,
           style: const TextStyle(
             fontSize: 24,
           ),
@@ -131,7 +131,7 @@ class _DetailScreenState extends State<DetailScreen> {
                           height: 15,
                         ),
                         Text(
-                          '현재 차량 수: ${snapshot.data!.currentCar}',
+                          '현재 차량 수: ${snapshot.data!.cnt}',
                           style: const TextStyle(
                             fontSize: 50,
                           ),

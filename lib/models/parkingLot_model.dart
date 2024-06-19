@@ -1,7 +1,7 @@
 class parkingLotModel {
-  final String parkingName, image, id;
+  final String name, image, id;
   parkingLotModel.fromJson(Map<String, dynamic> json)
-      : parkingName = json['parkingName'],
+      : name = json['name'],
         id = json['id'].toString(),
         image = json['image'];
 }
